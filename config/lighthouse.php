@@ -16,7 +16,7 @@ return [
         /*
          * The URI the endpoint responds to, e.g. mydomain.com/graphql.
          */
-        'uri' => '/api',
+        'uri' => '/gql  ',
 
         /*
          * Lighthouse creates a named route for convenient URL generation and redirects.
@@ -40,7 +40,9 @@ return [
 
             // Logs every incoming GraphQL query.
             // Nuwave\Lighthouse\Http\Middleware\LogGraphQLQueries::class,
-        ],
+            // uncomint this line when connecting to react next.js
+            //\Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+        ],['web'],
 
         /*
          * The `prefix`, `domain` and `where` configuration options are optional.
@@ -61,7 +63,7 @@ return [
     |
     */
 
-    'guards' => null,
+    'guards' => ['sanctum'],
 
     /*
     |--------------------------------------------------------------------------

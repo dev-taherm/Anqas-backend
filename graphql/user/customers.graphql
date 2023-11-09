@@ -1,0 +1,39 @@
+scalar DateTime
+    @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+extend type Query {
+    "Find a single user by an identifying attribute."
+    customer(
+        "Search by primary key."
+        id: ID @eq #@rules(apply: ["prohibits:username", "required_without:username"])
+        "Search by username address."
+        username: String
+            @eq
+            @rules(apply: ["prohibits:id", "required_without:id", "username"])
+    ): Customer @find
+
+    "List multiple users."
+    customers(
+        "Filters by name. Accepts SQL LIKE wildcards `%` and `_`."
+        username: String @where(operator: "like")
+    ): [Customer!]! @paginate(defaultCount: 10)
+}
+
+type Customer {
+    id: ID!
+
+    username: String!
+
+    default_shipping_address: String!
+
+    city: String!
+
+    user: User @belongsTo
+
+    phone: String!
+
+    bio: String!
+
+    created_at: DateTime!
+
+    updated_at: DateTime!
+}
