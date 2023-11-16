@@ -29,8 +29,13 @@ scalar DateTime
     customerByUsername(username: String!): Customer @find
 
  "Find a single customer"
-    customer:[Customer!]! @paginate(defaultCount: 10)
+    customers:[Customer!]! @paginate(defaultCount: 10)
 
+ "find seller by o_username"  
+    seller(o_username: String @eq): Seller @find
+
+ "find sellers"     
+    sellers:[Seller!]! @paginate(defaultCount: 10)
 }
 
 "Account of a person who utilizes this application."
@@ -71,3 +76,22 @@ type Cutsomer{
      bio:String
 }
 
+type Seller{ 
+
+     id:ID!
+
+     user: User @belongsTo
+
+     o_username:String!
+
+     o_name:String!
+
+     o_address:String!
+
+     o_city:String!
+
+     o_phone:String!
+
+     o_bio:String
+
+}
