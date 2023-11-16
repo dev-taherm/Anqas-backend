@@ -22,20 +22,20 @@ scalar DateTime
     "List multiple users."
     users(
         "Filters by name. Accepts SQL LIKE wildcards `%` and `_`."
-        # name: String @where(operator: "like")
+        name: String @where(operator: "like")
     ): [User!]! @paginate(defaultCount: 10)
 
  "Find a single customer by the username of the associated user."
-    customerByUsername(username: String!): Customer @find
+    customerByUsername(username: String!): Customer @first
 
  "Find a single customer"
-    customers:[Customer!]! @paginate(defaultCount: 10)
+    customers(first:Int):[Customer!]! @paginate(defaultCount: 10)
 
  "find seller by o_username"  
-    seller(o_username: String @eq): Seller @find
+    seller(o_username: String @eq): Seller @first
 
  "find sellers"     
-    sellers:[Seller!]! @paginate(defaultCount: 10)
+    sellers(first: Int):[Seller!]! @paginate(defaultCount: 10)
 }
 
 "Account of a person who utilizes this application."
@@ -59,21 +59,21 @@ type User {
     updated_at: DateTime!
 }
 
-type Cutsomer{
- 
-     id:ID!
+type Customer {
 
-     user: User @belongsTo
+    id: ID!
 
-     name:String!
+    user: User @belongsTo
 
-     address:String!
+    name: String!
 
-     city:String!
+    address: String!
 
-     phone:String!
+    city: String!
 
-     bio:String
+    phone: String!
+
+    bio: String
 }
 
 type Seller{ 
