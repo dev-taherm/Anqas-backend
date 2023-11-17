@@ -1,2 +1,2 @@
 #import Query/*.graphql
-#import Mutation/*.graphql
+#import Mutations/*.graphql

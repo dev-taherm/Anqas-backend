@@ -1,0 +1,17 @@
+extend type Mutation {
+
+    login(email: String!, password: String!, device:String!): LoginResponse!
+
+}
+
+
+type LoginResponse {
+    success: Boolean!
+    message: String
+    token: String
+}
+
+
+extend type Query{
+    me: User! @auth @guard
+}
