@@ -12,6 +12,15 @@ extend type Mutation {
     bio: String
     ): AddCustomerResponse! 
 
+     addSeller(
+    o_username: String!
+    o_name: String!
+    o_address: String!
+    o_city: String!
+    o_phone: String!
+    o_bio: String
+    ): AddSellerResponse! 
+
      
 }
 
@@ -32,6 +41,10 @@ type AddCustomerResponse {
     message: String
 }
 
+type AddSellerResponse {
+    seller: Seller!
+    message: String
+}
 
 
 input RegisterInput {

@@ -12,13 +12,13 @@ class Seller extends Model
  protected $fillable = [
         'o_username',
         'o_name',
-        'O_address',
+        'o_address',
         'o_city',
         'o_phone',
         'o_bio'
     ];
-     public function user(): BelongsTo{
-    
-        return $this->belongsTo(User::class);
-    }
+     public function user()
+{
+    return $this->belongsTo(User::class);
+}
 }
