@@ -2,6 +2,7 @@ extend type Mutation {
 
      login(identifier: String!, password: String!, device: String!): LoginResponse!
 
+     register(input: RegisterInput!): RegisterResponse!
 }
 
 
@@ -9,6 +10,17 @@ type LoginResponse {
     success: Boolean!
     message: String
     token: String
+}
+
+type RegisterResponse {
+    success: Boolean!
+    message: String
+}
+
+input RegisterInput {
+    username: String! # Add this line
+    email: String! # Keep the email field
+    password: String!
 }
 
 

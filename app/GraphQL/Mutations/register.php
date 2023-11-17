@@ -2,11 +2,34 @@
 
 namespace App\GraphQL\Mutations;
 
- class register
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
+
+class Register
 {
-    /** @param  array{}  $args */
-    public function __invoke(null $_, array $args)
+    public function __invoke($root, array $args)
     {
-        // TODO implement the resolver
+        $validator = Validator::make($args['input'], [
+            'username' => 'required|string|unique:users',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|string|min:8',
+        ]);
+
+        if ($validator->fails()) {
+            throw new ValidationException($validator);
+        }
+
+        $user = new User();
+        $user->username = $args['input']['username'];
+        $user->email = $args['input']['email'];
+        $user->password = Hash::make($args['input']['password']);
+        $user->save();
+
+        return [
+            'success' => true,
+            'message' => 'Registration successful.',
+        ];
     }
 }
