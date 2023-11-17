@@ -3,6 +3,16 @@ extend type Mutation {
      login(identifier: String!, password: String!, device: String!): LoginResponse!
 
      register(input: RegisterInput!): RegisterResponse!
+    
+     addCustomer(
+    name: String!
+    address: String!
+    city: String!
+    phone: String!
+    bio: String
+    ): AddCustomerResponse! 
+
+     
 }
 
 
@@ -16,6 +26,13 @@ type RegisterResponse {
     success: Boolean!
     message: String
 }
+
+type AddCustomerResponse {
+    customer: Customer!
+    message: String
+}
+
+
 
 input RegisterInput {
     username: String! # Add this line
