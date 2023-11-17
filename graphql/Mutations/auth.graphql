@@ -1,6 +1,6 @@
 extend type Mutation {
 
-    login(email: String!, password: String!, device:String!): LoginResponse!
+     login(identifier: String!, password: String!, device: String!): LoginResponse!
 
 }
 
