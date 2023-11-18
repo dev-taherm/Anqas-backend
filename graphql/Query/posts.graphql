@@ -1,0 +1,36 @@
+
+
+enum PostStatus {
+    DRAFT @enum(value: 1)
+    PUBLISHED @enum(value: 2)
+    ARCHIVED @enum(value: 3)
+    WAITING @enum(value: 4)
+    BOOKED @enum(value: 5)
+    CANCELED_C @enum(value: 6)
+    CANCELED_S @enum(value: 7)
+}
+
+type Query {
+
+    postR(
+    first: Int
+    byTitle: String
+  ): [PostR!]! @paginate(defaultCount: 10)
+}
+
+
+
+
+type PostR {
+    id: ID!
+
+    customer: Customer @belongsTo
+
+    titel: String!
+
+    descriptions: String!
+
+    post_address: String!
+
+    post_status: PostStatus!
+}
