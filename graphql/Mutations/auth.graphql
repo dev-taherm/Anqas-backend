@@ -26,6 +26,7 @@ extend type Mutation {
 
 
 type LoginResponse {
+    user: User!
     success: Boolean!
     message: String
     token: String
