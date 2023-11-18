@@ -24,10 +24,11 @@ class Login
                 'identifier' => ['The provided credentials are incorrect.'],
             ]);
         }
-
+        
         $token = $user->createToken($args['device'])->plainTextToken;
 
         return [
+            'user'=>$user,
             'success' => true,
             'message' => 'Login successful.',
             'token' => $token,
