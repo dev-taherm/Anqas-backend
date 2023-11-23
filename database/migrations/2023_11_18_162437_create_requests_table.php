@@ -16,8 +16,8 @@ return new class extends Migration
             $table->foreignId('customer_id')->constrained()->onDelete('cascade');
             $table->string('titel');
             $table->string('descriptions');
-            $table->string('post_address');
-            $table->enum('post_status', ['draft', 'published', 'archived', 'waiting', 'booked', 'canceled_c', 'canceled_s']);
+            $table->string('address');
+            $table->enum('status', ['draft', 'published', 'archived', 'waiting', 'booked', 'canceled_c', 'canceled_s']);
             $table->timestamps();
         });
     }

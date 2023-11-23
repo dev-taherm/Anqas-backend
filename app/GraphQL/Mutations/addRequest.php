@@ -18,24 +18,24 @@ class addRequest
 
         // Find the customer for the user
         $customer = $user->customer;
-        $postr = $customer->postr;
+        $request = $customer->Request;
 
        
-         $postr = new Request();
-        $postr->customer_id = $customer->id;
-        $postr->titel = $args['titel'];
-        $postr->descriptions = $args['descriptions'];
-        $postr->post_address = $args['post_address'];
-        $postr->post_status = $args['post_status'];
+         $request = new Request();
+        $request->customer_id = $customer->id;
+        $request->titel = $args['titel'];
+        $request->descriptions = $args['descriptions'];
+        $request->post_address = $args['post_address'];
+        $request->post_status = $args['post_status'];
       
 
         // Save the postr
-        $postr->save();
+        $request->save();
 
         $message =  'post added successfully.' ;
 
         return [
-            'postr' => $postr,
+            'postr' => $request,
             'message' => $message,
         ];
     }

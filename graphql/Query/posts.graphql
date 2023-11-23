@@ -12,16 +12,17 @@ enum PostStatus {
 
 type Query {
 
-    postR(
+    request(
     first: Int
     byTitle: String
-  ): [PostR!]! @paginate(defaultCount: 10)
+  ): [Request!]! @paginate(defaultCount: 10)
 }
 
 
 
 
-type PostR {
+type Request {
+
     id: ID!
 
     customer: Customer @belongsTo
@@ -30,7 +31,7 @@ type PostR {
 
     descriptions: String!
 
-    post_address: String!
+    address: String!
 
-    post_status: PostStatus!
+    status: PostStatus!
 }

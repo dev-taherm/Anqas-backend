@@ -1,15 +1,15 @@
 extend type Mutation{
 
-      addPostR(
+      addRequest(
     titel: String!
     descriptions: String!
-    post_address: String!
-    post_status: PostStatus!
+    address: String!
+    status: PostStatus!
     ): AddPostRResponse! 
 }
 
 
-type AddPostRResponse {
-    postr: PostR!
+type AddRequestResponse {
+    request: Request!
     message: String
 }

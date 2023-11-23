@@ -12,8 +12,8 @@ class Request extends Model
      protected $fillable = [
         'titel',
         'descriptions',
-        'post_address',
-        'post_status',
+        'address',
+        'status',
     ];
 
      public function customer()
