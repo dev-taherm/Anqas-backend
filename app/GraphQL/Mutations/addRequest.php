@@ -3,9 +3,9 @@
 namespace App\GraphQL\Mutations;
 
 use Illuminate\Support\Facades\Auth;
-use App\Models\PostR;
+use App\Models\Request;
 
-class addPostR
+class addRequest
 {
     public function __invoke($root, array $args)
     {
@@ -21,7 +21,7 @@ class addPostR
         $postr = $customer->postr;
 
        
-         $postr = new PostR();
+         $postr = new Request();
         $postr->customer_id = $customer->id;
         $postr->titel = $args['titel'];
         $postr->descriptions = $args['descriptions'];

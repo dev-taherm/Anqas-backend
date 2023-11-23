@@ -22,8 +22,8 @@ class Customer extends Model
     return $this->belongsTo(User::class);
 }
 
- public function postr()
+ public function request()
 {
-    return $this->hasMany(PostR::class);
+    return $this->hasMany(Request::class);
 }
 }
