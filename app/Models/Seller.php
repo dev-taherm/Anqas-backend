@@ -22,9 +22,14 @@ class Seller extends Model
     return $this->belongsTo(User::class);
 }
 
-         public function service()
+         public function services()
 {
     return $this->hasMany(Service::class);
+}
+
+         public function offer()
+{
+    return $this->hasMany(Offer::class);
 }
 
 }

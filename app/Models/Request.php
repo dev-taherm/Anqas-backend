@@ -20,4 +20,9 @@ class Request extends Model
 {
     return $this->belongsTo(Customer::class);
 }
+
+     public function offers()
+{
+    return $this->hasMany(Offer::class);
+}
 }
