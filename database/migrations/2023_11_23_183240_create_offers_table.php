@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('price');
             $table->enum('status', ['draft', 'published', 'archived', 'waiting', 'booked', 'canceled_c', 'canceled_s']);
             $table->timestamps();
-            $table->timestamps();
         });
     }
 
