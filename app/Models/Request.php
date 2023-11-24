@@ -25,4 +25,15 @@ class Request extends Model
 {
     return $this->hasMany(Offer::class);
 }
+
+    public function subcategory()
+{
+    return $this->belongsToMany(Subcategory::class);
+}
+
+
+        public function tags()
+{
+    return $this->belongsToMany(Tag::class);
+}
 }

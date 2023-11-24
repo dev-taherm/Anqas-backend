@@ -24,4 +24,13 @@ class Service extends Model
 {
     return $this->hasMany(Order::class);
 }
+
+    public function subcategory()
+{
+    return $this->belongsToMany(Subcategory::class);
+}
+        public function tags()
+{
+    return $this->belongsToMany(Tag::class);
+}
 }
