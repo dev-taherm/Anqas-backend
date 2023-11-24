@@ -10,6 +10,11 @@ class SubCategory extends Model
     use HasFactory;
 
 
+      protected $fillable = [
+        "name",
+        "descriptions",
+    ];
+
        public function category()
 {
     return $this->belongsTo(Category::class);
